@@ -713,7 +713,8 @@ class PosixEnv : public Env {
   }
 
   void SleepForMicroseconds(int micros) override {
-    std::this_thread::sleep_for(std::chrono::microseconds(micros));
+    ::usleep(micros);
+    //std::this_thread::sleep_for(std::chrono::microseconds(micros));
   }
 
  private:
